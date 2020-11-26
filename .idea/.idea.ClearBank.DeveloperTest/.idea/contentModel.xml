@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\code\ClearBank.DeveloperTest" t="IncludeFlat">
+      <e p="ClearBank.DeveloperTest" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ClearBank.DeveloperTest.csproj" t="IncludeRecursive" />
+        <e p="Data" t="Include">
+          <e p="AccountDataStore.cs" t="Include" />
+          <e p="BackupAccountDataStore.cs" t="Include" />
+          <e p="IAccountDataStore.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="ClearBank.DeveloperTest.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="PaymentStrategy" t="Include">
+          <e p="BacsPaymentStrategy.cs" t="Include" />
+          <e p="ChapsPaymentStrategy.cs" t="Include" />
+          <e p="FasterPaymentStrategy.cs" t="Include" />
+          <e p="IPaymentSchemePredicate.cs" t="Include" />
+          <e p="IPaymentSchemeStrategy.cs" t="Include" />
+          <e p="PaymentSchemePredicate.cs" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="AccountDataStoreFactory.cs" t="Include" />
+          <e p="Configuration.cs" t="Include" />
+          <e p="IAccountDataStoreFactory.cs" t="Include" />
+          <e p="IConfiguration.cs" t="Include" />
+          <e p="IPaymentService.cs" t="Include" />
+          <e p="PaymentService.cs" t="Include" />
+        </e>
+        <e p="Types" t="Include">
+          <e p="Account.cs" t="Include" />
+          <e p="AccountStatus.cs" t="Include" />
+          <e p="AllowedPaymentSchemes.cs" t="Include" />
+          <e p="MakePaymentRequest.cs" t="Include" />
+          <e p="MakePaymentResult.cs" t="Include" />
+          <e p="PaymentScheme.cs" t="Include" />
+        </e>
+      </e>
+      <e p="ClearBank.DeveloperTest.sln" t="IncludeFlat" />
+      <e p="ClearBank.DeveloperTest.Tests" t="IncludeRecursive">
+        <e p="AccountDataStoreFactoryTests.cs" t="Include" />
+        <e p="BacsPaymentStrategyTests.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ChapsPaymentStrategyTests.cs" t="Include" />
+        <e p="ClearBank.DeveloperTest.Tests.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="ClearBank.DeveloperTest.Tests.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="PaymentSchemePredicateTests.cs" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\Users\C14191A\.nuget\packages\microsoft.net.test.sdk\16.8.0\build\netcoreapp2.1" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="C:\Users\C14191A\.nuget\packages\microsoft.testplatform.testhost\16.8.0\build\netcoreapp2.1\x64\testhost.dll" t="Include" />
+    <e p="C:\Users\C14191A\.nuget\packages\microsoft.testplatform.testhost\16.8.0\build\netcoreapp2.1\x64\testhost.exe" t="Include" />
+    <e p="C:\Users\C14191A\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\C14191A\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_ClearBank.DeveloperTest.1793598588.00" t="ExcludeRecursive" />
+    <e p="C:\Users\C14191A\AppData\Roaming\JetBrains\Rider2020.2\scratches" t="IncludeRecursive" />
+  </component>
+</project>
