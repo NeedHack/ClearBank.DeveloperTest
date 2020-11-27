@@ -1,6 +1,5 @@
 using AutoFixture.Xunit2;
 using ClearBank.DeveloperTest.Data;
-using ClearBank.DeveloperTest.Services;
 using FluentAssertions;
 using Xunit;
 

@@ -1,74 +1,37 @@
-﻿using ClearBank.DeveloperTest.Types;
+﻿using System.Collections.Generic;
+using System.Linq;
+using ClearBank.DeveloperTest.Data;
+using ClearBank.DeveloperTest.PaymentStrategy;
+using ClearBank.DeveloperTest.Types;
+using Microsoft.Extensions.Options;
 
 namespace ClearBank.DeveloperTest.Services
 {
     public class PaymentService : IPaymentService
     {
         private readonly IAccountDataStoreFactory _accountDataStoreFactory;
-        private readonly IConfiguration _configuration;
+        private readonly IEnumerable<IPaymentSchemeStrategy> _paymentSchemes;
+        private readonly IOptions<PaymentServiceOptions> _options;
 
-        public PaymentService(IAccountDataStoreFactory accountDataStoreFactory, IConfiguration configuration)
+        public PaymentService(IAccountDataStoreFactory accountDataStoreFactory,
+            IEnumerable<IPaymentSchemeStrategy> paymentSchemes, IOptions<PaymentServiceOptions> options)
         {
             _accountDataStoreFactory = accountDataStoreFactory;
-            _configuration = configuration;
+            _paymentSchemes = paymentSchemes;
+            _options = options;
         }
 
         public MakePaymentResult MakePayment(MakePaymentRequest request)
         {
-            var dataStoreType = _configuration.AppSettings("DataStoreType");
+            var dataStoreType = _options.Value.DataStoreType; 
 
             var accountDataStore = _accountDataStoreFactory.MakeDataStore(dataStoreType);
 
             var account = accountDataStore.GetAccount(request.DebtorAccountNumber);
 
-            var result = new MakePaymentResult();
+            var paymentStrategy = _paymentSchemes.Single(strategy => strategy.Accepts == request.PaymentScheme);
 
-            // switch (request.PaymentScheme)
-            // {
-            //     case PaymentScheme.Bacs:
-            //         if (account == null)
-            //         {
-            //             result.Success = false;
-            //         }
-            //         else if (!account.AllowedPaymentSchemes.HasFlag(AllowedPaymentSchemes.Bacs))
-            //         {
-            //             result.Success = false;
-            //         }
-            //
-            //         break;
-            //
-            //     case PaymentScheme.FasterPayments:
-            //         if (account == null)
-            //         {
-            //             result.Success = false;
-            //         }
-            //         else if (!account.AllowedPaymentSchemes.HasFlag(AllowedPaymentSchemes.FasterPayments))
-            //         {
-            //             result.Success = false;
-            //         }
-            //         else if (account.Balance < request.Amount)
-            //         {
-            //             result.Success = false;
-            //         }
-            //
-            //         break;
-            //
-            //     case PaymentScheme.Chaps:
-            //         if (account == null)
-            //         {
-            //             result.Success = false;
-            //         }
-            //         else if (!account.AllowedPaymentSchemes.HasFlag(AllowedPaymentSchemes.Chaps))
-            //         {
-            //             result.Success = false;
-            //         }
-            //         else if (account.Status != AccountStatus.Live)
-            //         {
-            //             result.Success = false;
-            //         }
-            //
-            //         break;
-            // }
+            var result = paymentStrategy.MakePayment(account, request);
 
             if (result.Success)
             {

@@ -1,6 +1,4 @@
-using ClearBank.DeveloperTest.Data;
-
-namespace ClearBank.DeveloperTest.Services
+namespace ClearBank.DeveloperTest.Data
 {
     public class AccountDataStoreFactory : IAccountDataStoreFactory
     {
